@@ -1,0 +1,3 @@
+docker build -t server-impressao .
+
+docker run -d -p 631:631 --name impressao server-impressao

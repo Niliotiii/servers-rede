@@ -1,0 +1,10 @@
+version: '3'
+services:
+  dhcp-server:
+    image: networkboot/dhcpd
+    network_mode: host
+    volumes:
+      - ./data:/data
+      - ./data/dhcpd.conf:/etc/dhcp/dhcpd.conf:ro
+      # - ./dhcpd.conf:/etc/dhcp/dhcpd.conf:ro
+    restart: always

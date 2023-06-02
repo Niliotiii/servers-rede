@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ftp-server:
+    image: stilliard/pure-ftpd
+    ports:
+      - 21:21
+    volumes:
+      - ./ftpdata:/home/ftpusers
+    environment:
+      - FTP_USER=root
+      - FTP_PASS=root
+      - FTP_UID=1000
+      - FTP_GID=1000
+    restart: always

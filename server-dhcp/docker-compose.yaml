@@ -5,6 +5,7 @@ services:
     network_mode: host
     volumes:
       - ./data:/data
-      - ./data/dhcpd.conf:/etc/dhcp/dhcpd.conf:ro
-      # - ./dhcpd.conf:/etc/dhcp/dhcpd.conf:ro
+      - ./data/dhcpd.conf:/etc/dhcp/dhcpd.conf
     restart: always
+networks:
+  rede-teste:

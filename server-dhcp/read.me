@@ -1,0 +1,35 @@
+1  - Criando rede para uso
+
+docker network create --subnet=192.168.1.0/24 Projeto_Redes
+
+2  - Criando o Servido DHCP
+2.1- Construir a imagem docker, configurada no arquivo Dockerfile
+
+docker build -t servidor-dhcp .
+
+2.2- Execução do contêiner com base na imagem construida
+
+docker run --network Projeto_Redes --name dhcp --privileged -d servidor-dhcp
+
+2.3- Verificar status do servidor DHCP
+
+docker exec dhcp service isc-dhcp-server status
+
+3  - Testando o Servidor DHCP
+3.1- Criar outros conteiners na mesma rede do servidor dhcp
+
+docker run -it --network Projeto_Redes --user=root --privileged --name teste1 ubuntu:latest
+
+3.2- acesse o terminal do contêiner criado para teste e instale o utilitário 'dhclient' 
+
+apt-get update
+apt-get install -y isc-dhcp-client
+
+3.3- Solicitação de endereços IP ao servidor DHCP
+
+dhclient -v
+
+3.4- Verificar se recebeu o IP
+
+ip addr show
+

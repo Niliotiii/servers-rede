@@ -1,0 +1,17 @@
+1  - Criando rede para uso
+
+docker network create --subnet=192.168.1.0/24 Projeto_Redes
+
+2  - Criando o Servido DHCP
+2.1- Construir a imagem docker, configurada no arquivo Dockerfile
+
+docker build -t servidor-web .
+
+2.2- Execução do contêiner com base na imagem construida
+
+docker run --network Projeto_Redes -it -p 80:80 --name web --privileged -d servidor-web
+
+3  - Testando o Servidor Web
+3.1- Acesse seu navegador e busque a url
+
+localhost:80

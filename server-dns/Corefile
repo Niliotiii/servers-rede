@@ -1,9 +1,8 @@
 . {
-    forward . 8.8.8.8
+  forward . 8.8.8.8
 }
 
-exemplo.com {
-    file /etc/coredns/exemplo.com.zone
-    errors
+example.com {
+  file /etc/coredns/example.com.zone
+  errors
 }
-

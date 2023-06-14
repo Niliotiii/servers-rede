@@ -1,11 +1,8 @@
-# Use a imagem do CoreDNS como base
-FROM coredns/coredns
+FROM coredns/coredns:1.7.0
 
-# Copie o arquivo Corefile para o diretório de configuração do CoreDNS
-COPY Corefile /etc/coredns/
+LABEL maintainer="Burke Azbill"
 
-# Exponha a porta 53 para comunicação DNS
-EXPOSE 53/udp
-
-# Execute o CoreDNS usando o arquivo de configuração Corefile
-CMD ["coredns", "-conf", "/etc/coredns/Corefile"]
+EXPOSE 53 53/udp
+VOLUME ["/etc/coredns"]
+ENTRYPOINT ["/coredns"]
+CMD ["-conf", "/etc/coredns/Corefile"]

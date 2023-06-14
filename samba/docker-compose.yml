@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  samba:
+    image: dperson/samba
+    container_name: samba
+    network_mode: host
+    volumes:
+      - "./data:/etc/samba"
+      - "/home/caian:/mount"
+    environment:
+      - "TZ=America/Sao_Paulo"
+    restart: always

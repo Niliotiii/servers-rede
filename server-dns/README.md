@@ -1,8 +1,10 @@
-docker-compose up -d
-docker run -m 128m --expose=53 --expose=53/udp -p 53:53 -p 53:53/udp -v "$PWD"/config:/etc/coredns --name coredns burkeazbill/docker-coredns -conf /etc/coredns/Corefile
-dig @localhost gateway.example.com
+# docker-compose up -d
 
-ira retorna o seguinte:
+# docker run -m 128m --expose=53 --expose=53/udp -p 53:53 -p 53:53/udp -v "$PWD"/config:/etc/coredns --name coredns burkeazbill/docker-coredns -conf /etc/coredns/Corefile
+
+# dig @localhost gateway.example.com
+
+# ira retorna o seguinte:
 
 ; <<>> DiG 9.10.6 <<>> @localhost gateway.example.com
 ; (2 servers found)

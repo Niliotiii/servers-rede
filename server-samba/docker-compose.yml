@@ -6,8 +6,5 @@ services:
     container_name: samba
     network_mode: host
     volumes:
-      - "./data:/etc/samba"
-      - "/home/caian:/mount"
-    environment:
-      - "TZ=America/Sao_Paulo"
+      - "./samba-share:/mount"
     restart: always

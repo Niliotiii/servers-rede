@@ -1,10 +1,12 @@
-version: "3.5"
-
+version: '3'
 services:
   samba:
     image: dperson/samba
-    container_name: samba
-    network_mode: host
+    container_name: samba-server
+    restart: unless-stopped
+    ports:
+      - "139:139"
+      - "1445:445"
     volumes:
-      - "./samba-share:/mount"
-    restart: always
+      - ./server:/samba/share
+    command: '-s "shared;/samba/share;yes;no;yes"'
